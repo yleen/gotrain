@@ -7,4 +7,5 @@ type Config struct {
 	Redis  Redis  `json:"redis" yaml:"redis"`
 	ES     ES     `json:"es" yaml:"es"`
 	System System `json:"system" yaml:"system"`
+	Upload Upload `json:"upload" yaml:"upload"`
 }

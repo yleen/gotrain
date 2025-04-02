@@ -20,5 +20,7 @@ func RunServer() {
 
 	s := initServer(addr, router)
 	global.Log.Info("Server is running on ", zap.String("address", addr))
-	global.Log.Error(s.ListenAndServe().Error())
+	if err := s.ListenAndServe(); err != nil {
+		global.Log.Fatal("Server failed to start", zap.Error(err))
+	}
 }
