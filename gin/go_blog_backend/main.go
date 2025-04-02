@@ -24,5 +24,7 @@ func main() {
 
 	//flag.InitFlag()
 
-	initialize
+	initialize.InitCron()
+
+	core.RunServer()
 }
