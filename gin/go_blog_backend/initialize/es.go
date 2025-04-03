@@ -2,12 +2,10 @@ package initialize
 
 import (
 	"blog_backend/global"
-	"context"
 	"github.com/elastic/elastic-transport-go/v8/elastictransport"
 	"github.com/elastic/go-elasticsearch/v8"
 	"go.uber.org/zap"
 	"os"
-	"time"
 )
 
 func ConnectEs() *elasticsearch.TypedClient {
@@ -32,14 +30,14 @@ func ConnectEs() *elasticsearch.TypedClient {
 		os.Exit(1)
 	}
 
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	defer cancel()
+	//ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	//defer cancel()
 
-	_, err = client.Info().Do(ctx)
-	if err != nil {
-		global.Log.Error("Failed to connect to Elasticsearch cluster", zap.Error(err))
-		os.Exit(1)
-	}
+	//_, err = client.Info().Do(ctx)
+	//if err != nil {
+	//	global.Log.Error("Failed to connect to Elasticsearch cluster", zap.Error(err))
+	//	os.Exit(1)
+	//}
 
 	return client
 }

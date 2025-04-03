@@ -2,7 +2,7 @@ package config
 
 import "fmt"
 
-type System struct {
+type system struct {
 	Host           string `json:"-" yaml:"host"`
 	Port           string `json:"-" yaml:"port"`
 	Env            string `json:"-" yaml:"env"`
@@ -12,6 +12,6 @@ type System struct {
 	OssType        string `json:"oss_type" yaml:"oss_type"`
 }
 
-func (s System) Addr() string {
+func (s system) Addr() string {
 	return fmt.Sprintf("%s:%s", s.Host, s.Port)
 }

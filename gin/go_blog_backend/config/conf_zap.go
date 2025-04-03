@@ -1,6 +1,6 @@
 package config
 
-type Zap struct {
+type zap struct {
 	Level          string `json:"level" yaml:"level"`
 	FileName       string `json:"filename" yaml:"filename"`
 	MaxSize        int    `json:"max_size" yaml:"max_size"`

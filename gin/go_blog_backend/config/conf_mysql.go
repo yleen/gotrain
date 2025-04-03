@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-type Mysql struct {
+type mysql struct {
 	Host         string `json:"host" yaml:"host"`
 	Port         string `json:"port" yaml:"port"`
 	Config       string `json:"config" yaml:"config"`
@@ -17,11 +17,11 @@ type Mysql struct {
 	LogMode      string `json:"log_mode" yaml:"log_mode"`
 }
 
-func (m Mysql) Dsn() string {
+func (m mysql) Dsn() string {
 	return m.Username + ":" + m.Password + "@tcp(" + m.Host + ":" + m.Port + ")/" + m.DBName + "?" + m.Config
 }
 
-func (m Mysql) LogLevel() logger.LogLevel {
+func (m mysql) LogLevel() logger.LogLevel {
 	switch strings.ToLower(m.LogMode) {
 	case "silent", "Silent":
 		return logger.Silent

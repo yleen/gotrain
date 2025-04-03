@@ -7,7 +7,6 @@ import (
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
-	"golang.org/x/net/publicsuffix"
 	"net/http"
 )
 
@@ -23,5 +22,10 @@ func InitRouter() *gin.Engine {
 	publicGroup := router.Group(global.Config.System.RouterPrefix)
 	privateGroup := router.Group(global.Config.System.RouterPrefix)
 	privateGroup.Use(middleware.JWTAuth())
+	adminGroup := router.Group(global.Config.System.RouterPrefix)
+	adminGroup.Use(middleware.JWTAuth()).Use(middleware.AdminAuth())
+	{
+		routerGroup.BaseRouter.InitBaseRouter(publicGroup)
+	}
 	return router
 }

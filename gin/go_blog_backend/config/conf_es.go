@@ -1,6 +1,6 @@
 package config
 
-type ES struct {
+type es struct {
 	URL            string `json:"url" yaml:"url"`
 	Username       string `json:"username" yaml:"username"`
 	Password       string `json:"password" yaml:"password"`
